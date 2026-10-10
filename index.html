@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Bio Tiếp Thị Liên Kết</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .link-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex justify-center items-center p-4">
+
+    <div class="w-full max-w-md mx-auto glass-panel rounded-3xl shadow-2xl overflow-hidden p-6 text-white relative">
+        
+        <!-- Nút chỉnh sửa nhanh / Chia sẻ -->
+        <div class="absolute top-4 right-4 flex gap-2">
+            <button onclick="openConfigModal()" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition" title="Tùy chỉnh thông tin">
+                <i class="fa-solid fa-gear text-sm"></i>
+            </button>
+            <button onclick="shareLink()" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition" title="Chia sẻ trang">
+                <i class="fa-solid fa-share-nodes text-sm"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center text-center mt-4 mb-6">
+            <div class="relative mb-3">
+                <img id="profile-avatar" src="https://placehold.co/120x120/ffffff/4f46e5?text=GH" alt="Avatar" class="w-24 h-24 rounded-full object-cover border-4 border-white/40 shadow-lg">
+                <span class="absolute bottom-0 right-0 bg-emerald-500 w-6 h-6 rounded-full border-2 border-white flex items-center justify-center text-xs" title="Đã xác thực">
+                    <i class="fa-solid fa-check text-white"></i>
+                </span>
+            </div>
+            <h1 id="profile-name" class="text-xl font-bold tracking-tight text-white drop-shadow">Gia dụng thông minh 🏠</h1>
+            <p id="profile-bio" class="text-xs text-white/90 mt-1 max-w-xs leading-relaxed">
+                Đẹp hơn, sống xịn hơn mỗi ngày cùng những item này 🛍️🔥<br>Toàn bộ đồ mình dùng, tâm huyết mình review đều ở đây:<br>👇 Chạm vào link để chốt đơn nhanh:
+            </p>
+            
+            <!-- Social Icons -->
+            <div class="flex gap-4 mt-4 text-lg">
+                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+
+        <div class="flex gap-2 overflow-x-auto pb-2 mb-4 scrollbar-none" id="category-filters">
+            <button onclick="filterLinks('all')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white text-indigo-700 shadow transition whitespace-nowrap active">Tất cả</button>
+            <button onclick="filterLinks('cosmetics')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💄 Mỹ phẩm</button>
+            <button onclick="filterLinks('tech')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💻 Công nghệ</button>
+            <button onclick="filterLinks('home')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">🏠 Gia dụng</button>
+            <button onclick="filterLinks('fashion')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">👗 Thời trang</button>
+        </div>
+
+        <div class="space-y-3.5 max-h-[380px] overflow-y-auto pr-1" id="links-container">
+            <!-- Dynamic Links populated via JavaScript -->
+        </div>
+
+        <div class="mt-6 text-center text-[10px] text-white/60">
+            Powered by Affiliate Bio Creator • Cập nhật mỗi ngày ✨
+        </div>
+    </div>
+
+    <!-- Modal Thông báo copy link -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white px-4 py-2 rounded-xl text-xs shadow-xl opacity-0 transition-opacity pointer-events-none z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-msg">Đã sao chép liên kết vào bộ nhớ tạm!</span>
+    </div>
+
+    <!-- Modal Cấu hình / Thêm Link -->
+    <div id="config-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white text-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <h3 class="text-lg font-bold mb-4 text-indigo-600 flex items-center justify-between">
+                <span>Quản lý & Thêm Link Mới</span>
+                <button onclick="closeConfigModal()" class="text-slate-400 hover:text-slate-600 text-sm"><i class="fa-solid fa-xmark"></i></button>
+            </h3>
+            
+            <form id="add-link-form" onsubmit="addNewLink(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Tiêu đề sản phẩm/deal:</label>
+                    <input type="text" id="new-title" required placeholder="Ví dụ: Kem chống nắng siêu đỉnh sale 50%" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Đường dẫn Affiliate URL:</label>
+                    <input type="url" id="new-url" required placeholder="https://shope.ee/..." class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Danh mục:</label>
+                    <select id="new-category" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none bg-white">
+                        <option value="cosmetics">💄 Mỹ phẩm</option>
+                        <option value="tech">💻 Công nghệ</option>
+                        <option value="home">🏠 Gia dụng</option>
+                        <option value="fashion">👗 Thời trang</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Nhãn nổi bật (Badge - tùy chọn):</label>
+                    <input type="text" id="new-badge" placeholder="Ví dụ: 🔥 Hot Deal, ⚡ Giảm 50%" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Link Ảnh minh họa (URL):</label>
+                    <input type="url" id="new-image" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs rounded-lg transition shadow-md">
+                    + Thêm Link Vào Bio
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu mẫu các đường link affiliate
+        let affiliateLinks = [
+            {
+                id: 1,
+                title: "Kem chống nắng quốc dân bảo vệ da toàn diện",
+                url: "https://shopee.vn",
+                category: "cosmetics",
+                badge: "🔥 Hot Deal -50%",
+                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=150&q=80",
+                clicks: 342
+            },
+            {
+                id: 2,
+                title: "Tai nghe chống ồn không dây pin cực trâu",
+                url: "https://lazada.vn",
+                category: "tech",
+                badge: "⚡ Săn sale đêm nay",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=150&q=80",
+                clicks: 521
+            },
+            {
+                id: 3,
+                title: "Nồi chiên không dầu thông minh dung tích lớn",
+                url: "https://shopee.vn",
+                category: "home",
+                badge: "🎁 Tặng kèm quà",
+                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
+                clicks: 189
+            },
+            {
+                id: 4,
+                title: "Áo khoác blazer công sở thanh lịch, trẻ trung",
+                url: "https://tiktok.com",
+                category: "fashion",
+                badge: "✨ New Arrival",
+                image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=150&q=80",
+                clicks: 275
+            },
+            {
+                id: 5,
+                title: "Serum Vitamin C sáng da mờ thâm hiệu quả",
+                url: "https://shopee.vn",
+                category: "cosmetics",
+                badge: "⭐ Best Seller",
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80",
+                clicks: 412
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Render danh sách link
+        function renderLinks(filter = 'all') {
+            const container = document.getElementById('links-container');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? affiliateLinks 
+                : affiliateLinks.filter(item => item.category === filter);
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="text-center py-8 text-white/70 text-xs">Chưa có sản phẩm nào trong danh mục này.</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = `link-card bg-white/15 hover:bg-white/25 border border-white/20 rounded-2xl p-3 flex items-center justify-between gap-3 cursor-pointer`;
+                card.onclick = () => handleLinkClick(item.url, item.id);
+
+                card.innerHTML = `
+                    <div class="flex items-center gap-3 min-w-0">
+                        <img src="${item.image}" alt="Product" class="w-12 h-12 rounded-xl object-cover shrink-0 bg-white/20" onerror="this.src='https://placehold.co/100x100/ffffff/4f46e5?text=Deal'">
+                        <div class="min-w-0 text-left">
+                            ${item.badge ? `<span class="inline-block bg-rose-500/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full mb-1">${item.badge}</span>` : ''}
+                            <h3 class="font-semibold text-xs text-white truncate">${item.title}</h3>
+                            <p class="text-[10px] text-white/70 mt-0.5"><i class="fa-solid fa-fire text-amber-300 mr-1"></i>${item.clicks} lượt click</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 hover:bg-white text-indigo-600 transition">
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Lọc theo danh mục
+        function filterLinks(category) {
+            currentFilter = category;
+            
+            // Cập nhật trạng thái active của nút
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'active');
+                btn.classList.add('bg-white/20', 'text-white');
+            });
+            event.target.classList.remove('bg-white/20', 'text-white');
+            event.target.classList.add('bg-white', 'text-indigo-700', 'active');
+
+            renderLinks(category);
+        }
+
+        // Xử lý khi bấm vào link affiliate
+        function handleLinkClick(url, id) {
+            // Tăng số click giả lập
+            const found = affiliateLinks.find(i => i.id === id);
+            if (found) found.clicks++;
+            renderLinks(currentFilter);
+
+            // Mở link hoặc copy
+            showToast("Đang chuyển hướng đến trang mua hàng chính hãng...");
+            setTimeout(() => {
+                window.open(url, '_blank');
+            }, 600);
+        }
+
+        // Chia sẻ trang Bio
+        function shareLink() {
+            const currentUrl = window.location.href;
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = currentUrl;
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            
+            showToast("Đã sao chép liên kết trang Bio của bạn!");
+        }
+
+        // Hiển thị thông báo Toast tùy chỉnh
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2500);
+        }
+
+        // Modal quản lý
+        function openConfigModal() {
+            document.getElementById('config-modal').classList.remove('hidden');
+            document.getElementById('config-modal').classList.add('flex');
+        }
+
+        function closeConfigModal() {
+            document.getElementById('config-modal').classList.add('hidden');
+            document.getElementById('config-modal').classList.remove('flex');
+        }
+
+        // Thêm link mới
+        function addNewLink(e) {
+            e.preventDefault();
+            const title = document.getElementById('new-title').value;
+            const url = document.getElementById('new-url').value;
+            const category = document.getElementById('new-category').value;
+            const badge = document.getElementById('new-badge').value;
+            const image = document.getElementById('new-image').value || 'https://placehold.co/100x100/ffffff/4f46e5?text=Deal';
+
+            const newItem = {
+                id: Date.now(),
+                title,
+                url,
+                category,
+                badge,
+                image,
+                clicks: 1
+            };
+
+            affiliateLinks.unshift(newItem);
+            renderLinks(currentFilter);
+            closeConfigModal();
+            document.getElementById('add-link-form').reset();
+            showToast("Đã thêm sản phẩm affiliate mới thành công!");
+        }
+
+        // Khởi chạy lần đầu khi tải trang
+        window.onload = function() {
+            renderLinks('all');
+        }
+    </script>
+</body>
+</html>
