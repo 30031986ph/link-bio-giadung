@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Bio Tiếp Thị Liên Kết</title>
+    <title>X | Link Bio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome cho icon -->
@@ -33,7 +33,6 @@
         .category-btn {
             border: 1px solid transparent;
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -50,7 +49,6 @@
 
     <div class="w-full max-w-md mx-auto glass-panel rounded-3xl shadow-2xl overflow-hidden p-6 text-white relative">
 
-        <!-- Nút chỉnh sửa nhanh / Chia sẻ -->
         <div class="absolute top-4 right-4 flex gap-2">
             <button onclick="openConfigModal()" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition" title="Tùy chỉnh thông tin">
                 <i class="fa-solid fa-gear text-sm"></i>
@@ -67,17 +65,16 @@
                     <i class="fa-solid fa-check text-white"></i>
                 </span>
             </div>
-            <h1 id="profile-name" class="text-xl font-bold tracking-tight text-white drop-shadow">Gia dụng thông minh 🏠</h1>
+            <h1 id="profile-name" class="text-xl font-bold tracking-tight text-white drop-shadow">X</h1>
             <p id="profile-bio" class="text-xs text-white/90 mt-1 max-w-xs leading-relaxed">
-                Mẹo nhà bếp, đồ gia dụng, tiện ích & deal hot mỗi ngày ✨<br>Shop xu hướng, tiết kiệm, bền đẹp & tiện dụng:<br>👇 Chạm vào link yêu thích của bạn
+                Mẹo nhà bếp, đồ gia dụng, tiện ích & deal hot mỗi ngày ✨<br>Đồ bền đẹp, tiện lợi, tiết kiệm cho ngôi nhà bạn.<br>👇 Khám phá ngay sản phẩm yêu thích
             </p>
 
-            <!-- Social Icons -->
             <div class="flex gap-4 mt-4 text-lg">
-                <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@x" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/x" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@x" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/x" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
             </div>
         </div>
 
@@ -94,11 +91,10 @@
         </div>
 
         <div class="mt-6 text-center text-[10px] text-white/60">
-            Powered by Affiliate Bio Creator • Cập nhật mỗi ngày ✨
+            X • Cập nhật mỗi ngày ✨
         </div>
     </div>
 
-    <!-- Modal Thông báo copy link -->
     <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white px-4 py-2 rounded-xl text-xs shadow-xl opacity-0 transition-opacity pointer-events-none z-50">
         <div class="flex items-center gap-2">
             <i class="fa-solid fa-circle-check text-emerald-400"></i>
@@ -106,7 +102,6 @@
         </div>
     </div>
 
-    <!-- Modal Cấu hình / Thêm Link -->
     <div id="config-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
         <div class="bg-white text-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
             <h3 class="text-lg font-bold mb-4 text-indigo-600 flex items-center justify-between">
@@ -220,7 +215,6 @@
         let affiliateLinks = loadAffiliateLinks();
         let currentFilter = 'all';
 
-        // Render danh sách link
         function renderLinks(filter = 'all') {
             const container = document.getElementById('links-container');
             container.innerHTML = '';
@@ -256,7 +250,6 @@
             });
         }
 
-        // Lọc theo danh mục
         function filterLinks(category, event) {
             currentFilter = category;
 
@@ -272,7 +265,6 @@
             renderLinks(category);
         }
 
-        // Xử lý khi bấm vào link affiliate
         function handleLinkClick(url, id) {
             const found = affiliateLinks.find(i => i.id === id);
             if (found) {
@@ -287,7 +279,6 @@
             }, 600);
         }
 
-        // Chia sẻ trang Bio
         function shareLink() {
             const currentUrl = window.location.href;
             navigator.clipboard.writeText(currentUrl)
@@ -302,7 +293,6 @@
                 });
         }
 
-        // Hiển thị thông báo Toast tùy chỉnh
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-msg').innerText = msg;
@@ -312,7 +302,6 @@
             }, 2500);
         }
 
-        // Modal quản lý
         function openConfigModal() {
             document.getElementById('config-modal').classList.remove('hidden');
             document.getElementById('config-modal').classList.add('flex');
@@ -323,7 +312,6 @@
             document.getElementById('config-modal').classList.remove('flex');
         }
 
-        // Thêm link mới
         function addNewLink(e) {
             e.preventDefault();
             const title = document.getElementById('new-title').value.trim();
@@ -355,7 +343,6 @@
             showToast("Đã thêm sản phẩm affiliate mới thành công!");
         }
 
-        // Khởi chạy lần đầu khi tải trang
         window.onload = function() {
             renderLinks('all');
             filterLinks('all');
