@@ -1,0 +1,63 @@
+{
+  "shop": {
+    "name": "Gia Dụng Thông Minh",
+    "bio": "Mẹo nhà bếp, đồ gia dụng, tiện ích & deal hot mỗi ngày ✨\nĐồ bền đẹp, tiện lợi, tiết kiệm cho ngôi nhà bạn.\n👇 Khám phá ngay sản phẩm yêu thích",
+    "avatar": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=80",
+    "shopLink": "https://shopee.vn",
+    "phone": "+84987654321",
+    "zalo": "https://zalo.me/0987654321"
+  },
+  "social": {
+    "tiktok": "https://www.tiktok.com/@giadungthongminh",
+    "instagram": "https://www.instagram.com/giadungthongminh",
+    "youtube": "https://www.youtube.com/@giadungthongminh",
+    "facebook": "https://www.facebook.com/giadungthongminh"
+  },
+  "products": [
+    {
+      "id": 1,
+      "title": "Sản phẩm 1: Tên sản phẩm của bạn ở đây",
+      "url": "https://shopee.vn/your-affiliate-link",
+      "category": "home",
+      "badge": "🔥 Hot Deal",
+      "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=150&q=80",
+      "clicks": 0
+    },
+    {
+      "id": 2,
+      "title": "Sản phẩm 2: Tên sản phẩm của bạn ở đây",
+      "url": "https://shopee.vn/your-affiliate-link",
+      "category": "home",
+      "badge": "⚡ Giảm 30%",
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=150&q=80",
+      "clicks": 0
+    },
+    {
+      "id": 3,
+      "title": "Sản phẩm 3: Tên sản phẩm của bạn ở đây",
+      "url": "https://shopee.vn/your-affiliate-link",
+      "category": "home",
+      "badge": "🎁 Tặng kèm quà",
+      "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
+      "clicks": 0
+    },
+    {
+      "id": 4,
+      "title": "Sản phẩm 4: Tên sản phẩm của bạn ở đây",
+      "url": "https://shopee.vn/your-affiliate-link",
+      "category": "home",
+      "badge": "✨ New Arrival",
+      "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=150&q=80",
+      "clicks": 0
+    },
+    {
+      "id": 5,
+      "title": "Sản phẩm 5: Tên sản phẩm của bạn ở đây",
+      "url": "https://shopee.vn/your-affiliate-link",
+      "category": "home",
+      "badge": "⭐ Best Seller",
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80",
+      "clicks": 0
+    }
+  ]
+}
