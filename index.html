@@ -13,31 +13,35 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 28%, #f43f5e 65%, #7c3aed 100%);
             min-height: 100vh;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(76, 29, 149, 0.22);
         }
         .link-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 25px -5px rgba(15, 23, 42, 0.25);
+        }
+        .category-btn {
+            border: 1px solid transparent;
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.08);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.35);
             border-radius: 3px;
         }
     </style>
@@ -45,7 +49,7 @@
 <body class="text-slate-800 flex justify-center items-center p-4">
 
     <div class="w-full max-w-md mx-auto glass-panel rounded-3xl shadow-2xl overflow-hidden p-6 text-white relative">
-        
+
         <!-- Nút chỉnh sửa nhanh / Chia sẻ -->
         <div class="absolute top-4 right-4 flex gap-2">
             <button onclick="openConfigModal()" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition" title="Tùy chỉnh thông tin">
@@ -58,31 +62,31 @@
 
         <div class="flex flex-col items-center text-center mt-4 mb-6">
             <div class="relative mb-3">
-                <img id="profile-avatar" src="https://placehold.co/120x120/ffffff/4f46e5?text=GH" alt="Avatar" class="w-24 h-24 rounded-full object-cover border-4 border-white/40 shadow-lg">
+                <img id="profile-avatar" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=80" alt="Avatar" class="w-24 h-24 rounded-full object-cover border-4 border-white/40 shadow-lg">
                 <span class="absolute bottom-0 right-0 bg-emerald-500 w-6 h-6 rounded-full border-2 border-white flex items-center justify-center text-xs" title="Đã xác thực">
                     <i class="fa-solid fa-check text-white"></i>
                 </span>
             </div>
             <h1 id="profile-name" class="text-xl font-bold tracking-tight text-white drop-shadow">Gia dụng thông minh 🏠</h1>
             <p id="profile-bio" class="text-xs text-white/90 mt-1 max-w-xs leading-relaxed">
-                Đẹp hơn, sống xịn hơn mỗi ngày cùng những item này 🛍️🔥<br>Toàn bộ đồ mình dùng, tâm huyết mình review đều ở đây:<br>👇 Chạm vào link để chốt đơn nhanh:
+                Mẹo nhà bếp, đồ gia dụng, tiện ích & deal hot mỗi ngày ✨<br>Shop xu hướng, tiết kiệm, bền đẹp & tiện dụng:<br>👇 Chạm vào link yêu thích của bạn
             </p>
-            
+
             <!-- Social Icons -->
             <div class="flex gap-4 mt-4 text-lg">
-                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition"><i class="fa-brands fa-facebook"></i></a>
             </div>
         </div>
 
         <div class="flex gap-2 overflow-x-auto pb-2 mb-4 scrollbar-none" id="category-filters">
-            <button onclick="filterLinks('all')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white text-indigo-700 shadow transition whitespace-nowrap active">Tất cả</button>
-            <button onclick="filterLinks('cosmetics')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💄 Mỹ phẩm</button>
-            <button onclick="filterLinks('tech')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💻 Công nghệ</button>
-            <button onclick="filterLinks('home')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">🏠 Gia dụng</button>
-            <button onclick="filterLinks('fashion')" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">👗 Thời trang</button>
+            <button data-category="all" onclick="filterLinks('all', event)" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white text-indigo-700 shadow transition whitespace-nowrap active">Tất cả</button>
+            <button data-category="cosmetics" onclick="filterLinks('cosmetics', event)" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💄 Mỹ phẩm</button>
+            <button data-category="tech" onclick="filterLinks('tech', event)" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">💻 Công nghệ</button>
+            <button data-category="home" onclick="filterLinks('home', event)" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">🏠 Gia dụng</button>
+            <button data-category="fashion" onclick="filterLinks('fashion', event)" class="category-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/20 hover:bg-white/30 text-white transition whitespace-nowrap">👗 Thời trang</button>
         </div>
 
         <div class="space-y-3.5 max-h-[380px] overflow-y-auto pr-1" id="links-container">
@@ -95,9 +99,11 @@
     </div>
 
     <!-- Modal Thông báo copy link -->
-    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white px-4 py-2 rounded-xl text-xs shadow-xl opacity-0 transition-opacity pointer-events-none z-50 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span id="toast-msg">Đã sao chép liên kết vào bộ nhớ tạm!</span>
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white px-4 py-2 rounded-xl text-xs shadow-xl opacity-0 transition-opacity pointer-events-none z-50">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+            <span id="toast-msg">Đã sao chép liên kết vào bộ nhớ tạm!</span>
+        </div>
     </div>
 
     <!-- Modal Cấu hình / Thêm Link -->
@@ -105,13 +111,13 @@
         <div class="bg-white text-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
             <h3 class="text-lg font-bold mb-4 text-indigo-600 flex items-center justify-between">
                 <span>Quản lý & Thêm Link Mới</span>
-                <button onclick="closeConfigModal()" class="text-slate-400 hover:text-slate-600 text-sm"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" onclick="closeConfigModal()" class="text-slate-400 hover:text-slate-600 text-sm"><i class="fa-solid fa-xmark"></i></button>
             </h3>
-            
+
             <form id="add-link-form" onsubmit="addNewLink(event)" class="space-y-3">
                 <div>
                     <label class="block text-xs font-medium text-slate-600 mb-1">Tiêu đề sản phẩm/deal:</label>
-                    <input type="text" id="new-title" required placeholder="Ví dụ: Kem chống nắng siêu đỉnh sale 50%" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <input type="text" id="new-title" required placeholder="Ví dụ: Bộ nồi inox cao cấp gia đình" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-slate-600 mb-1">Đường dẫn Affiliate URL:</label>
@@ -122,7 +128,7 @@
                     <select id="new-category" class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none bg-white">
                         <option value="cosmetics">💄 Mỹ phẩm</option>
                         <option value="tech">💻 Công nghệ</option>
-                        <option value="home">🏠 Gia dụng</option>
+                        <option value="home" selected>🏠 Gia dụng</option>
                         <option value="fashion">👗 Thời trang</option>
                     </select>
                 </div>
@@ -142,55 +148,76 @@
     </div>
 
     <script>
-        // Dữ liệu mẫu các đường link affiliate
-        let affiliateLinks = [
-            {
-                id: 1,
-                title: "Kem chống nắng quốc dân bảo vệ da toàn diện",
-                url: "https://shopee.vn",
-                category: "cosmetics",
-                badge: "🔥 Hot Deal -50%",
-                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=150&q=80",
-                clicks: 342
-            },
-            {
-                id: 2,
-                title: "Tai nghe chống ồn không dây pin cực trâu",
-                url: "https://lazada.vn",
-                category: "tech",
-                badge: "⚡ Săn sale đêm nay",
-                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=150&q=80",
-                clicks: 521
-            },
-            {
-                id: 3,
-                title: "Nồi chiên không dầu thông minh dung tích lớn",
-                url: "https://shopee.vn",
-                category: "home",
-                badge: "🎁 Tặng kèm quà",
-                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
-                clicks: 189
-            },
-            {
-                id: 4,
-                title: "Áo khoác blazer công sở thanh lịch, trẻ trung",
-                url: "https://tiktok.com",
-                category: "fashion",
-                badge: "✨ New Arrival",
-                image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=150&q=80",
-                clicks: 275
-            },
-            {
-                id: 5,
-                title: "Serum Vitamin C sáng da mờ thâm hiệu quả",
-                url: "https://shopee.vn",
-                category: "cosmetics",
-                badge: "⭐ Best Seller",
-                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80",
-                clicks: 412
-            }
-        ];
+        const STORAGE_KEY = 'affiliateLinksGiaDung';
 
+        function getDefaultLinks() {
+            return [
+                {
+                    id: 1,
+                    title: "Bếp từ điện đa năng cho căn bếp hiện đại",
+                    url: "https://shopee.vn",
+                    category: "home",
+                    badge: "🔥 Hot Deal -40%",
+                    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=150&q=80",
+                    clicks: 342
+                },
+                {
+                    id: 2,
+                    title: "Máy lọc không khí siêu êm, hiệu quả cao",
+                    url: "https://lazada.vn",
+                    category: "home",
+                    badge: "⚡ Săn sale đêm nay",
+                    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=150&q=80",
+                    clicks: 521
+                },
+                {
+                    id: 3,
+                    title: "Nồi chiên không dầu thông minh dung tích lớn",
+                    url: "https://shopee.vn",
+                    category: "home",
+                    badge: "🎁 Tặng kèm quà",
+                    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
+                    clicks: 189
+                },
+                {
+                    id: 4,
+                    title: "Máy xay sinh tố mini tiện dụng cho gia đình",
+                    url: "https://tiktok.com",
+                    category: "home",
+                    badge: "✨ New Arrival",
+                    image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=150&q=80",
+                    clicks: 275
+                },
+                {
+                    id: 5,
+                    title: "Serum Vitamin C sáng da mờ thâm hiệu quả",
+                    url: "https://shopee.vn",
+                    category: "cosmetics",
+                    badge: "⭐ Best Seller",
+                    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80",
+                    clicks: 412
+                }
+            ];
+        }
+
+        function loadAffiliateLinks() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) return getDefaultLinks();
+
+            try {
+                const parsed = JSON.parse(saved);
+                return Array.isArray(parsed) && parsed.length ? parsed : getDefaultLinks();
+            } catch (error) {
+                console.warn('Lỗi đọc dữ liệu link bio, dùng dữ liệu mặc định:', error);
+                return getDefaultLinks();
+            }
+        }
+
+        function saveAffiliateLinks() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(affiliateLinks));
+        }
+
+        let affiliateLinks = loadAffiliateLinks();
         let currentFilter = 'all';
 
         // Render danh sách link
@@ -198,8 +225,8 @@
             const container = document.getElementById('links-container');
             container.innerHTML = '';
 
-            const filtered = filter === 'all' 
-                ? affiliateLinks 
+            const filtered = filter === 'all'
+                ? affiliateLinks
                 : affiliateLinks.filter(item => item.category === filter);
 
             if (filtered.length === 0) {
@@ -214,7 +241,7 @@
 
                 card.innerHTML = `
                     <div class="flex items-center gap-3 min-w-0">
-                        <img src="${item.image}" alt="Product" class="w-12 h-12 rounded-xl object-cover shrink-0 bg-white/20" onerror="this.src='https://placehold.co/100x100/ffffff/4f46e5?text=Deal'">
+                        <img src="${item.image}" alt="Product" class="w-12 h-12 rounded-xl object-cover shrink-0 bg-white/20" onerror="this.src='https://placehold.co/100x100/ffffff/4f46e5?text=Deal'" />
                         <div class="min-w-0 text-left">
                             ${item.badge ? `<span class="inline-block bg-rose-500/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full mb-1">${item.badge}</span>` : ''}
                             <h3 class="font-semibold text-xs text-white truncate">${item.title}</h3>
@@ -230,44 +257,49 @@
         }
 
         // Lọc theo danh mục
-        function filterLinks(category) {
+        function filterLinks(category, event) {
             currentFilter = category;
-            
-            // Cập nhật trạng thái active của nút
+
             document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('bg-white', 'text-indigo-700', 'active');
-                btn.classList.add('bg-white/20', 'text-white');
+                const isActive = btn.dataset.category === category;
+                btn.classList.toggle('bg-white', isActive);
+                btn.classList.toggle('text-indigo-700', isActive);
+                btn.classList.toggle('active', isActive);
+                btn.classList.toggle('bg-white/20', !isActive);
+                btn.classList.toggle('text-white', !isActive);
             });
-            event.target.classList.remove('bg-white/20', 'text-white');
-            event.target.classList.add('bg-white', 'text-indigo-700', 'active');
 
             renderLinks(category);
         }
 
         // Xử lý khi bấm vào link affiliate
         function handleLinkClick(url, id) {
-            // Tăng số click giả lập
             const found = affiliateLinks.find(i => i.id === id);
-            if (found) found.clicks++;
+            if (found) {
+                found.clicks += 1;
+                saveAffiliateLinks();
+            }
             renderLinks(currentFilter);
 
-            // Mở link hoặc copy
             showToast("Đang chuyển hướng đến trang mua hàng chính hãng...");
             setTimeout(() => {
-                window.open(url, '_blank');
+                window.open(url, '_blank', 'noopener,noreferrer');
             }, 600);
         }
 
         // Chia sẻ trang Bio
         function shareLink() {
             const currentUrl = window.location.href;
-            const dummy = document.createElement('input');
-            document.body.appendChild(dummy);
-            dummy.value = currentUrl;
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
-            
-            showToast("Đã sao chép liên kết trang Bio của bạn!");
+            navigator.clipboard.writeText(currentUrl)
+                .then(() => showToast("Đã sao chép liên kết trang Bio của bạn!"))
+                .catch(() => {
+                    const dummy = document.createElement('input');
+                    document.body.appendChild(dummy);
+                    dummy.value = currentUrl;
+                    document.execCommand('copy');
+                    document.body.removeChild(dummy);
+                    showToast("Đã sao chép liên kết trang Bio của bạn!");
+                });
         }
 
         // Hiển thị thông báo Toast tùy chỉnh
@@ -294,11 +326,16 @@
         // Thêm link mới
         function addNewLink(e) {
             e.preventDefault();
-            const title = document.getElementById('new-title').value;
-            const url = document.getElementById('new-url').value;
+            const title = document.getElementById('new-title').value.trim();
+            const url = document.getElementById('new-url').value.trim();
             const category = document.getElementById('new-category').value;
-            const badge = document.getElementById('new-badge').value;
-            const image = document.getElementById('new-image').value || 'https://placehold.co/100x100/ffffff/4f46e5?text=Deal';
+            const badge = document.getElementById('new-badge').value.trim();
+            const image = document.getElementById('new-image').value.trim() || 'https://placehold.co/100x100/ffffff/4f46e5?text=Deal';
+
+            if (!title || !url) {
+                showToast('Vui lòng nhập tiêu đề và link hợp lệ!');
+                return;
+            }
 
             const newItem = {
                 id: Date.now(),
@@ -311,6 +348,7 @@
             };
 
             affiliateLinks.unshift(newItem);
+            saveAffiliateLinks();
             renderLinks(currentFilter);
             closeConfigModal();
             document.getElementById('add-link-form').reset();
@@ -320,6 +358,7 @@
         // Khởi chạy lần đầu khi tải trang
         window.onload = function() {
             renderLinks('all');
+            filterLinks('all');
         }
     </script>
 </body>
