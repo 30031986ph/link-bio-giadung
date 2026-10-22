@@ -4,8 +4,8 @@
     "bio": "Mẹo nhà bếp, đồ gia dụng, tiện ích & deal hot mỗi ngày ✨\nĐồ bền đẹp, tiện lợi, tiết kiệm cho ngôi nhà bạn.\n👇 Khám phá ngay sản phẩm yêu thích",
     "avatar": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=80",
     "shopLink": "https://shopee.vn",
-    "phone": "+84987654321",
-    "zalo": "https://zalo.me/0987654321"
+    "phone": "+84854564432",
+    "zalo": "https://zalo.me/0854564432"
   },
   "social": {
     "tiktok": "https://www.tiktok.com/@giadungthongminh",
@@ -16,48 +16,57 @@
   "products": [
     {
       "id": 1,
-      "title": "Sản phẩm 1: Tên sản phẩm của bạn ở đây",
-      "url": "https://shopee.vn/your-affiliate-link",
+      "title": "Sản phẩm 1: Chảo chống dính Luna",
+      "url": "https://shopee.vn/Ch%E1%BA%A3o-ch%E1%BB%91ng-d%C3%ADnh-b%E1%BA%BFp-t%E1%BB%AB-Amercook-LUNA-24cm-Ch%E1%BA%A3o-nh%C3%B4m-r%C3%A8n-ph%E1%BB%A7-Ceramic-cao-c%E1%BA%A5p-chu%E1%BA%A9n-M%E1%BB%B9-i.1499332759.56464300378?extraParams=%7B%22display_model_id%22%3A396230941892%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mu07896zc1zb12",
       "category": "home",
-      "badge": "🔥 Hot Deal",
-      "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=150&q=80",
+      "badge": "🔥 Giảm 40%, kèm quà tặng 1 miếng bọt biển hình trứng",
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mu07896zc1zb12.webp",
       "clicks": 0
     },
     {
       "id": 2,
-      "title": "Sản phẩm 2: Tên sản phẩm của bạn ở đây",
-      "url": "https://shopee.vn/your-affiliate-link",
+      "title": "Sản phẩm 2: Máy làm sữa hạt Gilux GLP18PRO ",
+      "url": "https://shopee.vn/M%C3%A1y-l%C3%A0m-s%E1%BB%AFa-h%E1%BA%A1t-Gilux-%C4%91a-ch%E1%BB%A9c-n%C4%83ng-Xay-n%E1%BA%A5u-t%E1%BB%B1-%C4%91%E1%BB%99ng-C%C3%B4ng-su%E1%BA%A5t-l%C6%A1%CC%81n-B%E1%BA%A3o-H%C3%A0nh-Ch%C3%ADnh-H%C3%A3ng-18-Th%C3%A1ng-i.1669854908.48950931867?extraParams=%7B%22display_model_id%22%3A391318731078%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mua4kui5u6804e",
       "category": "home",
-      "badge": "⚡ Giảm 30%",
-      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=150&q=80",
+      "badge": "⚡ Giảm 20%",
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134258-81ztc-muj9ipyjmrka39.webp",
       "clicks": 0
     },
     {
       "id": 3,
-      "title": "Sản phẩm 3: Tên sản phẩm của bạn ở đây",
-      "url": "https://shopee.vn/your-affiliate-link",
+      "title": "Sản phẩm 3: Ấm đun nước siêu tốc 1,8L ONR 18 chế độ pha 800w ",
+      "url": "https://shopee.vn/%E1%BA%A4m-%C4%91un-n%C6%B0%E1%BB%9Bc-si%C3%AAu-t%E1%BB%91c-1.8L-ONR-18-Ch%E1%BA%BF-%C4%90%E1%BB%99-Pha-Ch%E1%BA%BF-T%E1%BB%91c-%C4%90%E1%BB%99-Nhanh-800W-B%C3%ACnh-Th%E1%BB%A7y-Tinh-Ti%E1%BB%87n-D%E1%BB%A5ng-(-s%E1%BA%B5n-h%C3%A0ng-)-i.1273318675.26385664413?extraParams=%7B%22display_model_id%22%3A139358589298%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134201-7ra0g-m9879e43ka5qf7",
       "category": "home",
-      "badge": "🎁 Tặng kèm quà",
-      "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80",
+      "badge": "🎁 Hot",
+      "image": "https://https://down-vn.img.susercontent.com/file/vn-11134258-81ztc-muj9x1yarll32a.webp",
       "clicks": 0
     },
     {
       "id": 4,
-      "title": "Sản phẩm 4: Tên sản phẩm của bạn ở đây",
-      "url": "https://shopee.vn/your-affiliate-link",
+      "title": "Sản phẩm 4: Nồi hầm lẩu điện 28cm đa năng",
+      "url": "https://shopee.vn/N%E1%BB%93i-H%E1%BA%A7m-L%E1%BA%A9u-%C4%90i%E1%BB%87n-28cm-DK-House-%C4%91a-n%C4%83ng-chi%C3%AAn-x%C3%A0o-h%E1%BA%A5p-r%C3%A1n-....-N%E1%BB%93i-H%E1%BA%A7m-N%E1%BB%93i-L%E1%BA%A9u-%C4%90i%E1%BB%87n-N%E1%BA%A5u-%C4%82n-%C4%90a-N%C4%83ng-Ti%E1%BB%87n-L%E1%BB%A3i-i.336872332.40429150111?extraParams=%7B%22display_model_id%22%3A381490085066%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-msw26vk89fr9f1",
       "category": "home",
-      "badge": "✨ New Arrival",
-      "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=150&q=80",
+      "badge": "✨ Freeship",
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-msw26vk89fr9f1@resize_w450_nl.webp",
       "clicks": 0
     },
     {
       "id": 5,
-      "title": "Sản phẩm 5: Tên sản phẩm của bạn ở đây",
-      "url": "https://shopee.vn/your-affiliate-link",
+      "title": "Sản phẩm 5: Bộ lau nhà đa năng Sunhouse",
+      "url": "https://shopee.vn/B%C3%B4%CC%A3-lau-nha%CC%80-%C4%91a-n%C4%83ng-Space-Saving-Sunhouse-KS-CL3211PW-G%E1%BB%93m-1-th%C3%B9ng-gi%E1%BA%B7t-1-c%C3%A2y-lau-B%E1%BA%A3o-h%C3%A0nh-6-th%C3%A1ng-ch%C3%ADnh-h%C3%A3ng-i.18183995.16442084009?extraParams=%7B%22display_model_id%22%3A212519580167%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-msnmy70w5kowc8",
       "category": "home",
-      "badge": "⭐ Best Seller",
+      "badge": "⭐ giảm 23%",
       "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80",
       "clicks": 0
-    }
+    },
+    {
+     "id": 6,
+     "title": "Sản phẩm 6: Máy hút chân không tự động KAW",
+     "url": "https://shopee.vn/M%C3%A1y-H%C3%BAt-Ch%C3%A2n-Kh%C3%B4ng-KAW-H%C3%BAt-H%C3%A0n-Mi%E1%BB%87ng-T%C3%BAi-T%E1%BB%B1-%C4%90%E1%BB%99ng-L%E1%BB%B1c-Kh%E1%BB%8Fe-H%C3%A0n-Mi%E1%BB%87ng-T%C3%BAi-Kh%E1%BB%AD-Tr%C3%B9ng-B%E1%BA%B1ng-Tia-C%E1%BB%B1c-T%C3%ADm-i.1564496417.43568614588?extraParams=%7B%22display_model_id%22%3A266650865013%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-820l4-mejesyvku41x3c",
+     "category": "home",
+     "badge": "⭐ giảm 38%",
+     "image": "https://down-vn.img.susercontent.com/file/vn-11134258-81ztc-muj9x1yarll32a.webp",
+     "clicks": 0
+     
   ]
 }
